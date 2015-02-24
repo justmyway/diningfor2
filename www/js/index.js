@@ -16,6 +16,17 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+ function getData(){
+    $.ajax( "https://api.eet.nu/venues" )
+        .done(function() {
+            alert( "success" );
+        })
+        .fail(function() {
+            alert( "error" );
+        });
+}
+ /*
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -47,3 +58,4 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+*/
