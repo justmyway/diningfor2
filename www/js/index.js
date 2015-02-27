@@ -33,7 +33,20 @@ function getVenues(callback){
         });
 }
 
-function showVenues(){
-
+function showVenues(err){
+    if(err){
+        alert(err);
+    }else{
+        var obj = document.createElement('ul');
+        var html = '';
+        for(var c=0; c< 20 ; c++){
+            html += '<li>'+venues[c].name+'</li>';
+        }
+        obj.innerHTML = html;
+        obj.setAttribute('data-role', 'listview');
+        document.getElementById('venuList').appendChild(obj);
+        //$(obj).viewList();
+    }
 }
- // document.addEventListener('deviceready', getData);
+//document.addEventListener('deviceready', startApp);
+$(document).ready(startApp);
