@@ -24,7 +24,7 @@
             function getGeoLocation() {
                 var element = document.getElementById('geoLocation');
                 element.innerHTML = 'GEO location aan het zoeken';
-                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                navigator.geolocation.getCurrentPosition(onSuccess, onError,{maximumAge: 10000, timeout: 5000, enableHighAccuracy: true});
             }
 
             // onSuccess Geolocation
@@ -46,7 +46,7 @@
             function onError(error) {
                 alert('code: '    + error.code    + '\n' +
                       'message: ' + error.message + '\n' +
-                      'extra' + error);
+                      'extra' + JSON.stringify(error));
             }
 
         </script>
@@ -73,6 +73,6 @@
         </script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/geoLocation.js"></script>
+        <!--<script type="text/javascript" src="js/geoLocation.js"></script>-->
     </body>
 </html>
