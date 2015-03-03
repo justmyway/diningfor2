@@ -14,7 +14,6 @@
         <link rel="stylesheet" type="text/css" href="css/main.css" />
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <!--<script type="text/javascript" charset="utf-8" src="js/geoLocation.js"></script>-->
         <script type="text/javascript" charset="utf-8">
 
             // Wait for device API libraries to load
@@ -29,7 +28,7 @@
             // onSuccess Geolocation
             //
             function onSuccess(position) {
-                var element = document.getElementById('geolocation');
+                var element = document.getElementById('geoLocation');
                 element.innerHTML = 'Latitude: '          + position.coords.latitude         + '<br />' +
                                     'Longitude: '         + position.coords.longitude        + '<br />' +
                                     'Altitude: '          + position.coords.altitude         + '<br />' +
@@ -41,12 +40,12 @@
                 alert('bam');
             }
 
-                // onError Callback receives a PositionError object
-                //
-                function onError(error) {
-                    alert('code: '    + error.code    + '\n' +
-                          'message: ' + error.message + '\n');
-                }
+            // onError Callback receives a PositionError object
+            //
+            function onError(error) {
+                alert('code: '    + error.code    + '\n' +
+                      'message: ' + error.message + '\n');
+            }
 
         </script>
     </head>
@@ -57,7 +56,7 @@
                 <h1 class="title">Dining for 2</h1>
             </div>
             <div>
-                <p class="geoLocation">searching...</p>
+                <p id="geoLocation">searching...</p>
             </div>
             <div data-role="main">
                 <div id="venuList">
@@ -67,11 +66,11 @@
                 <h2>Build by MR. Kieboom & Mickey &copy; Eat together</h2>
             </div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
-        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/geoLocation.js"></script>
     </body>
 </html>
