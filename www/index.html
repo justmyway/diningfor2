@@ -5,15 +5,15 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
         <title>Dining for 2</title>
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         <link rel="stylesheet" href="css/themes/team1.min.css" />
         <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/main.css" />
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" charset="utf-8">
 
             // Wait for device API libraries to load
@@ -22,6 +22,8 @@
 
             // device APIs are available
             function getGeoLocation() {
+                var element = document.getElementById('geoLocation');
+                element.innerHTML = 'GEO location aan het zoeken';
                 navigator.geolocation.getCurrentPosition(onSuccess, onError);
             }
 
@@ -37,22 +39,22 @@
                                     'Heading: '           + position.coords.heading          + '<br />' +
                                     'Speed: '             + position.coords.speed            + '<br />' +
                                     'Timestamp: '         + position.timestamp               + '<br />';
-                alert('bam');
             }
 
             // onError Callback receives a PositionError object
             //
             function onError(error) {
                 alert('code: '    + error.code    + '\n' +
-                      'message: ' + error.message + '\n');
+                      'message: ' + error.message + '\n' +
+                      'extra' + error);
             }
 
         </script>
     </head>
     <body>
-        <div class="container">
-            <div data-role="header" data-position="fixed">
-                <a class="headerButton" href="index.html" data-icon="search">Zoeken</a>
+        <div class="container" data-role="page">
+            <div data-role="header" data-position="fixed" class="header">
+                <a href="index.html" data-icon="search">Zoeken</a>
                 <h1 class="title">Dining for 2</h1>
             </div>
             <div>
