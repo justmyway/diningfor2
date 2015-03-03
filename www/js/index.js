@@ -19,6 +19,7 @@
 var venues = [];
 
 function startApp(){
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
     getVenues(showVenues);
 }
 
@@ -45,8 +46,27 @@ function showVenues(err){
         obj.innerHTML = html;
         obj.setAttribute('data-role', 'listview');
         document.getElementById('venuList').appendChild(obj);
-        //$(obj).viewList();
+        $(obj).listview();
     }
 }
-//document.addEventListener('deviceready', startApp);
-$(document).ready(startApp);
+
+var geolocation = {};
+
+geolocation.onSuccess = function(position) {
+    var element = document.getElementById('geolocation');
+    element.innerHTML = 'Latitude: '          + position.coords.latitude         + '<br />' +
+                        'Longitude: '         + position.coords.longitude        + '<br />' +
+                        'Altitude: '          + position.coords.altitude         + '<br />' +
+                        'Accuracy: '          + position.coords.accuracy         + '<br />' +
+                        'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '<br />' +
+                        'Heading: '           + position.coords.heading          + '<br />' +
+                        'Speed: '             + position.coords.speed            + '<br />' +
+                        'Timestamp: '         + position.timestamp               + '<br />';
+};
+
+geolocation.onError = function(error){
+    alert('code: '    + error.code    + '\n' +
+        'message: ' + error.message + '\n');
+};
+
+document.addEventListener("deviceready", startApp, false);
