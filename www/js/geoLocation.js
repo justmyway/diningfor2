@@ -1,5 +1,3 @@
-<script type="text/javascript" charset="utf-8">
-
 // Wait for device API libraries to load
 //
 document.addEventListener("deviceready", getGeoLocation, false);
@@ -31,5 +29,3 @@ function onSuccess(position) {
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
-
-</script>
